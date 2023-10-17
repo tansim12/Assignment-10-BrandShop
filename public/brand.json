@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1",
+    "name": "Intel",
+    "image": "https://i.ibb.co/1RpqSFc/photo-1646627928017-969b372e2727-auto-format-fit-max-q-80-crop-faces-edges-cs-tinysrgb-fm-jpg-ixid-M.jpg",
+    "bg_color": "#bed0f7",
+    "category_color": "#0068B5"
+  },
+  {
+    "id": "2",
+    "name": "Samsung",
+    "image": "https://i.ibb.co/TBXkWTX/photo-1662947995689-ec5165848ad0-auto-format-fit-max-q-80-crop-faces-edges-cs-tinysrgb-fm-jpg-ixid-M.jpg",
+    "bg_color": "#4c86c7",
+    "category_color": "#034EA2"
+  },
+  {
+    "id": "3",
+    "name": "Apple",
+    "image": "https://i.ibb.co/JjwTTK6/photo-1585184394271-4c0a47dc59c9-auto-format-fit-max-q-80-crop-faces-edges-cs-tinysrgb-fm-jpg-ixid-M.jpg",
+    "bg_color": "#555555",
+    "category_color": "#000000"
+  },
+  {
+    "id": "4",
+    "name": "Sony",
+    "image": "https://i.ibb.co/j8NTg4m/photo-1651122555286-ffab5a04131a-auto-format-fit-max-q-80-crop-faces-edges-cs-tinysrgb-fm-jpg-ixid-M.jpg",
+    "bg_color": "#ed3b79",
+    "category_color": "#c1074d"
+  },
+  {
+    "id": "5",
+    "name": "AMD",
+    "image": "https://i.ibb.co/KWG7MKg/photo-1649734924749-83afd562057b-auto-format-fit-max-q-80-crop-faces-edges-cs-tinysrgb-fm-jpg-ixid-M.jpg",
+    "bg_color": "#ff444a",
+    "category_color": "#e52222"
+  },
+  {
+    "id": "6",
+    "name": "Microsoft",
+    "image": "https://i.ibb.co/9Tcb1MV/photo-1640763502425-7668dc1e4023-auto-format-fit-max-q-80-crop-faces-edges-cs-tinysrgb-fm-jpg-ixid-M.jpg",
+    "bg_color": "#fdd2c4",
+    "category_color": "#F25022"
+  }
+]
