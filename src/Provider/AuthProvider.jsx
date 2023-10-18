@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
     githubLogin,
     googleLogin,
   };
-  console.log(user);
+
   return <AuthContext.Provider value={info}>{children}</AuthContext.Provider>;
 };
 
