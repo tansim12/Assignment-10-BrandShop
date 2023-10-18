@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Brand = () => {
   const [brandData, setBrandData] = useState([]);
+  const navigate = useNavigate()
   useEffect(() => {
     const fetchDate = async () => {
       try {
@@ -15,11 +17,10 @@ const Brand = () => {
     fetchDate();
   }, []);
 
-
-//   handleCategoryPage
-const handleCategoryPage =()=>{
-
-}
+  //   handleCategoryPage
+  const handleCategoryPage = (brandName) => {
+    navigate(`/products/${brandName}`)
+  };
 
   return (
     <div>
@@ -33,10 +34,11 @@ const handleCategoryPage =()=>{
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {brandData?.map((item) => (
           <div
-          onClick={handleCategoryPage}
-          style={{ backgroundColor: item?.bg_color }}
-          
-          className="hover:cursor-pointer p-5 rounded-lg " key={item?.id}>
+            onClick={()=>handleCategoryPage(item?.name)}
+            style={{ backgroundColor: item?.bg_color }}
+            className="hover:cursor-pointer p-5 rounded-lg "
+            key={item?.id}
+          >
             <div>
               <img className="rounded-lg" src={item?.image} alt="" />
             </div>

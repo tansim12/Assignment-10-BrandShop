@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { BsCart4 } from "react-icons/bs";
+
 import Profile from "../Profile/Profile";
 import useAuthContext from "../../useAuthContext";
 import toast, { Toaster } from "react-hot-toast";
@@ -52,9 +52,7 @@ const Navbar = () => {
               : "my-2 lg:my-0 lg:mx-2"
           }
         >
-          <p className="text-2xl">
-            <BsCart4></BsCart4>
-          </p>
+          My Cart
         </NavLink>
       </li>
     </>
