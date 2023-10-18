@@ -13,12 +13,13 @@ const BrandProducts = ({ item }) => {
         {/* name and brand name  */}
         <div className="flex items-center justify-between font-semibold my-3">
           <p> Products : {productName}</p>
-          <p>Type : {type}</p>
+          
           <p className="px-3 py-2  bg-gray-700 text-white">
             {" "}
             {brandName}
           </p>
         </div>
+        <p className="font-semibold my-2">Type : {type}</p>
         {/* price  */}
         <p className="text-2xl font-semibold">Price : $ {price}</p>
         <div className="my-2">
