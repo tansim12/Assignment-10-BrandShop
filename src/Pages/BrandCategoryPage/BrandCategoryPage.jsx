@@ -5,7 +5,6 @@ import BrandProducts from "./BrandProducts";
 
 const BrandCategoryPage = () => {
   const data = useLoaderData();
-  console.log(typeof data, data);
 
   return (
     <div className="max-w-screen-xl mx-auto px-2 md:px-4 lg:px-8 py-5 gap-4">
@@ -92,7 +91,8 @@ const BrandCategoryPage = () => {
         </div>
       ) : (
         <span className=" text-3xl md:text-5xl  justify-center flex flex-col  text-center font-extrabold">
-          There is no Products,<span className="text-neutral">please retry</span>
+          There is no Products,
+          <span className="text-neutral">please retry</span>
         </span>
       )}
     </div>
