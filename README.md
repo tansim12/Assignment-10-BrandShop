@@ -1,8 +1,12 @@
-# React + Vite
+# My project feature 
+-My project backend side  management by mongodb.
+-There is all system is dynamical .
+-There is a getting a admin panel , so admin added a products and  update a products 
+-This project authentication by firebase .
+-This is project data fetch by API . So project more then fast then other project .
+-There is using by  some animation AOS .
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+ [Live Link :](aquamarine-gecko-c70636.netlify.app) 
+ 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

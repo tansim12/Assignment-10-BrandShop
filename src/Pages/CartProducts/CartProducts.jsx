@@ -5,13 +5,16 @@ const CartProducts = () => {
   const data = useLoaderData();
   //   handleCartDelete
   const handleCartDelete = async (_id) => {
+
+// fetch(`http://localhost:5000/cartProducts/${_id}`,{
+//     method:"DELETE"
+// }).then(res=> res.json()).then(fetchData=> {
+//     console.log(fetchData);
+// })
+
     try {
       const res = await fetch(`http://localhost:5000/cartProducts/${_id}`, {
-        method: "DELETE",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
+        method: "DELETE"
       });
       const fetchData = await res.json();
       console.log(fetchData);
