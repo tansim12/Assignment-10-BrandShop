@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const BrandProducts = ({ item }) => {
   const { productName, img, price, brandName, rating, type, _id } = item;
 
- 
   return (
     <div className="shadow-2xl p-5">
       <div>
@@ -59,9 +58,11 @@ const BrandProducts = ({ item }) => {
         </div>
 
         <div className="flex justify-between my-5">
-          <button className="btn bg-gradient-to-r from-violet-300 to-pink-500 font-semibold text-black">
-            Details
-          </button>
+          <Link to={`/details/${brandName}/${_id}`}>
+            <button className="btn bg-gradient-to-r from-violet-300 to-pink-500 font-semibold text-black">
+              Details
+            </button>
+          </Link>
           <Link to={`/products/${brandName}/${_id}`}>
             <button className="text-black font-semibold btn-secondary btn">
               update

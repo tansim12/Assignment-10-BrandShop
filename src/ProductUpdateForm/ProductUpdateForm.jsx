@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 const ProductUpdateForm = () => {
   const data = useLoaderData();
   const { productName, price, description, img, type, rating, _id } = data;
-  console.log(_id);
   const [brandName, setBrandName] = useState("");
   // handleBrandValue
   const handleBrandValue = (e) => {

@@ -8,6 +8,7 @@ import AddProducts from "../Pages/AddProducts.jsx/AddProducts";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import BrandCategoryPage from "../Pages/BrandCategoryPage/BrandCategoryPage";
 import ProductUpdateForm from "../ProductUpdateForm/ProductUpdateForm";
+import ProductsDetails from "../Pages/ProductsDetails/ProductsDetails";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
       {
         path: "/cartProducts",
         element: <CartProducts></CartProducts>,
+        loader: async () => {
+          const res = await fetch("http://localhost:5000/cartProducts");
+          const data = await res.json();
+          return data;
+        },
       },
       {
         path: "/products/:brandName",
@@ -50,7 +56,17 @@ const router = createBrowserRouter([
         path: "/products/:brandName/:_id",
         element: <ProductUpdateForm></ProductUpdateForm>,
         loader: async ({ params }) => {
-
+          const res = await fetch(
+            `http://localhost:5000/products/${params.brandName}/${params._id}`
+          );
+          const data = await res.json();
+          return data;
+        },
+      },
+      {
+        path: "/details/:brandName/:_id",
+        element: <ProductsDetails></ProductsDetails>,
+        loader: async ({ params }) => {
           const res = await fetch(
             `http://localhost:5000/products/${params.brandName}/${params._id}`
           );
