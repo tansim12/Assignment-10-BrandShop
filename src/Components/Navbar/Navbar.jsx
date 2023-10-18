@@ -1,10 +1,22 @@
 import { Link, NavLink } from "react-router-dom";
+import { BsToggle2Off, BsToggle2On } from "react-icons/bs";
+import "./toggle.css";
 
 import Profile from "../Profile/Profile";
 import useAuthContext from "../../useAuthContext";
 import toast, { Toaster } from "react-hot-toast";
+import { useEffect, useState } from "react";
 const Navbar = () => {
   const { user, logOut } = useAuthContext();
+  const [theme, setTheme] = useState(false);
+  useEffect(() => {
+    if (!theme) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  });
+
   //   handleLogOut
   const handleLogOut = () => {
     logOut()
@@ -18,10 +30,10 @@ const Navbar = () => {
           to={"/"}
           className={({ isActive, isPending }) =>
             isActive
-              ? "active my-2 lg:my-0 lg:mx-2 font-bold"
+              ? "active my-2 lg:my-0 lg:mx-2 font-bold hover:text-white"
               : isPending
               ? "pending"
-              : "my-2 lg:my-0 lg:mx-2"
+              : "my-2 lg:my-0 lg:mx-2 hover:text-neutral font-semibold"
           }
         >
           Home
@@ -32,10 +44,10 @@ const Navbar = () => {
           to={"/addProducts"}
           className={({ isActive, isPending }) =>
             isActive
-              ? "active my-2 lg:my-0 lg:mx-2 font-bold"
+              ? "active my-2 lg:my-0 lg:mx-2 font-bold hover:text-white"
               : isPending
               ? "pending"
-              : " my-2 lg:my-0 lg:mx-2"
+              : " my-2 lg:my-0 lg:mx-2  hover:text-neutral font-semibold"
           }
         >
           Add Product
@@ -46,10 +58,10 @@ const Navbar = () => {
           to={"/cartProducts"}
           className={({ isActive, isPending }) =>
             isActive
-              ? "active my-2 lg:my-0 lg:mx-2 font-bold"
+              ? "active my-2 lg:my-0 lg:mx-2 font-bold hover:text-white"
               : isPending
               ? "pending"
-              : "my-2 lg:my-0 lg:mx-2"
+              : "my-2 lg:my-0 lg:mx-2  hover:text-neutral font-semibold"
           }
         >
           My Cart
@@ -57,8 +69,11 @@ const Navbar = () => {
       </li>
     </>
   );
+
+  // toggle
+
   return (
-    <div >
+    <div>
       <div className="navbar shadow-2xl">
         <div className="navbar-start">
           <div className="dropdown">
@@ -80,7 +95,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-400 rounded-box w-52 "
             >
               {links}
             </ul>
@@ -90,7 +105,7 @@ const Navbar = () => {
             <img
               className="  h-10"
               src="https://klbtheme.com/machic/intro/assets/img/logo-dark.png"
-              alt=""
+              alt="Author"
             />
           </div>
         </div>
@@ -98,13 +113,18 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end ">
-          {/* avatar div  */}
+          {/* toggle dark theme  */}
           <div>
-            {
-                user && <Profile></Profile>
-            }
-            
+            <p onClick={() => setTheme(!theme)} className="text-4xl mr-4 p-2">
+              {!theme ? (
+                <BsToggle2Off></BsToggle2Off>
+              ) : (
+                <BsToggle2On></BsToggle2On>
+              )}
+            </p>
           </div>
+          {/* avatar div  */}
+          <div>{user && <Profile></Profile>}</div>
           <div>
             {user ? (
               <button

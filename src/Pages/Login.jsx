@@ -1,11 +1,38 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginWith from "../Components/LoginWith/LoginWith";
-import { Toaster } from "react-hot-toast";
-
+import toast, { Toaster } from "react-hot-toast";
+import useAuthContext from "../useAuthContext";
 
 const Login = () => {
-    return (
-        <section className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 py-5">
+  const { login } = useAuthContext();
+  const patten = /^(?=.*[A-Z])(?=.*[@#$%^&+=!]).{6,}$/;
+  const capital = /[A-Z]/;
+  const navigate = useNavigate();
+
+  // handleLogin
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    if (!capital.test(password)) {
+      return toast.error("Password should be one capital letter");
+    }
+    if (password.length < 6) {
+      return toast.error("Password not should be 6 characters");
+    }
+    if (!patten.test(password)) {
+      return toast.error("Password not should be one special  characters '@'");
+    }
+    login(email, password)
+      .then(() => {
+        toast.success("Login successfully");
+        navigate("/");
+      })
+      .catch(() => toast.error("Invalid user ."));
+  };
+
+  return (
+    <section className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 py-5">
       <div className="flex justify-center ">
         <div className="flex flex-col   max-w-md p-6 rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
           <div className="mb-8 text-center">
@@ -14,14 +41,13 @@ const Login = () => {
               Login to access your account
             </p>
           </div>
-          <form className="space-y-12" >
+          <form className="space-y-12" onSubmit={handleLogin}>
             <div className="space-y-4">
               <div>
                 <label className="block mb-2 text-sm">Email address</label>
                 <input
                   type="email"
                   name="email"
-                  
                   required
                   id="email"
                   placeholder="leroy@jenkins.com"
@@ -33,7 +59,6 @@ const Login = () => {
                   <label className="text-sm">Password</label>
                   <Link
                     rel="noopener noreferrer"
-                   
                     className="text-xs hover:underline dark:text-gray-400"
                   >
                     Forgot password?
@@ -80,6 +105,5 @@ const Login = () => {
     </section>
   );
 };
-
 
 export default Login;

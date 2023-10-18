@@ -9,7 +9,7 @@ const FAQs = () => {
         <div className="collapse-title text-base sm:text-xl font-medium border border-neutral rounded-t-2xl">
           What is the Internet of Things (IoT)?
         </div>
-        <div className="collapse-content text-xs sm:text-base bg-gray-200">
+        <div className="collapse-content text-xs sm:text-base text-black bg-gray-200">
           <p>
             Answer: The Internet of Things (IoT) refers to a network of
             interconnected devices and objects that can communicate with each
@@ -25,7 +25,7 @@ const FAQs = () => {
           What is the difference between virtual reality (VR) and augmented
           reality (AR)?
         </div>
-        <div className="collapse-content text-xs sm:text-base bg-gray-200">
+        <div className="collapse-content text-xs sm:text-base text-black bg-gray-200">
           <p>
             Answer: Virtual reality (VR) immerses users in a completely
             computer-generated environment, blocking out the real world.
@@ -40,7 +40,7 @@ const FAQs = () => {
         <div className="collapse-title text-base sm:text-xl font-medium border border-neutral rounded-t-2xl">
           What is 5G technology, and how does it differ from 4G?
         </div>
-        <div className="collapse-content text-xs sm:text-base bg-gray-200">
+        <div className="collapse-content text-xs sm:text-base text-black bg-gray-200">
           <p>
             {" "}
             Answer: 5G is the fifth generation of wireless technology, offering
@@ -57,7 +57,7 @@ const FAQs = () => {
         <div className="collapse-title text-base sm:text-xl font-medium border border-neutral rounded-t-2xl">
           How does encryption work to secure data?
         </div>
-        <div className="collapse-content text-xs sm:text-base bg-gray-200">
+        <div className="collapse-content text-xs sm:text-base text-black bg-gray-200">
           <p>
             {" "}
             Answer: Encryption is the process of converting readable data
@@ -75,7 +75,7 @@ const FAQs = () => {
           What are the benefits of solid-state drives (SSDs) over traditional
           hard disk drives (HDDs)?
         </div>
-        <div className="collapse-content text-xs sm:text-base bg-gray-200">
+        <div className="collapse-content text-xs sm:text-base text-black bg-gray-200">
           <p>
             {" "}
             Answer: SSDs offer several advantages over HDDs, including faster

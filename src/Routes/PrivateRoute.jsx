@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import useAuthContext from "../useAuthContext";
 
 const PrivateRoute = ({ children }) => {
-    const {loading , user} = useAuthContext()
+  const { loading, user } = useAuthContext();
   if (loading) {
     return (
       <div className="min-h-[70vh] flex justify-center items-center">
@@ -21,7 +21,7 @@ const PrivateRoute = ({ children }) => {
   }
 
   if (!user) {
-    return <Navigate to={"/login"} ></Navigate>
+    return <Navigate to={"/login"}></Navigate>;
   }
   return children;
 };

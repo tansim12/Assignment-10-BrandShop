@@ -2,12 +2,17 @@ import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
 import useAuthContext from "../../useAuthContext";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const LoginWith = () => {
   const { githubLogin, googleLogin } = useAuthContext();
+  const navigate = useNavigate();
   const handleLogin = (media) => {
     media()
-      .then(() => toast.success("Login Successfully"))
+      .then(() => {
+        toast.success("Login Successfully");
+        navigate("/");
+      })
       .catch((err) => toast.error(err.message));
   };
 
