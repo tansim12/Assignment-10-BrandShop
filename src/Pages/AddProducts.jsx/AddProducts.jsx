@@ -63,7 +63,7 @@ const AddProducts = () => {
             Add Your Products
           </h1>
 
-          <form onSubmit={handleAddProducts}>
+          <form onSubmit={handleAddProducts} className="text-black">
             <div className=" grid grid-cols-1 sm:grid-cols-2 gap-7">
               <div className="form-control">
                 <label className="label">

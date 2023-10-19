@@ -115,7 +115,7 @@ const Navbar = () => {
         <div className="navbar-end ">
           {/* toggle dark theme  */}
           <div>
-            <p onClick={() => setTheme(!theme)} className="text-4xl mr-4 p-2">
+            <p onClick={() => setTheme(!theme)} className="text-2xl sm:text-4xl mr-2 p-1 sm:mr-4 sm:p-2">
               {!theme ? (
                 <BsToggle2Off></BsToggle2Off>
               ) : (
@@ -129,13 +129,13 @@ const Navbar = () => {
             {user ? (
               <button
                 onClick={handleLogOut}
-                className="btn btn-sm sm:btn-md btn-neutral"
+                className="btn btn-xs sm:btn-md btn-neutral"
               >
                 Logout
               </button>
             ) : (
               <Link to={"/login"}>
-                <button className="btn btn-sm sm:btn-md btn-neutral">
+                <button className="btn btn-xs sm:btn-md btn-neutral">
                   Login
                 </button>
               </Link>

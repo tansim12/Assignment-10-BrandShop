@@ -16,7 +16,7 @@ const Home = () => {
 
       {/* marquee  */}
       <div className="my-10 hover:cursor-pointer">
-        <Marquee className="shadow-2xl">
+        <Marquee className="shadow-2xl" pauseOnHover delay={2} direction="right" gradient gradientColor="#FF444A">
           <img
             className="w-28 mx-12"
             src="https://i.ibb.co/dDwWfDY/intel-i-letter-2006-20203034-logowik-com.webp"
