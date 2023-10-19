@@ -66,7 +66,7 @@ const ProductUpdateForm = () => {
             }
           );
           const fetchData = await res.json();
-          
+
           if (fetchData.modifiedCount > 0) {
             Swal.fire("Update", "Your product update successfully", "success");
           }
@@ -205,7 +205,11 @@ const ProductUpdateForm = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-neutral w-full my-5">
+            <button
+              type="submit"
+              className="btn btn-neutral w-full my-5"
+              data-aos="zoom-in-down"
+            >
               Update
             </button>
           </form>

@@ -1,6 +1,7 @@
 import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
+
 const Footer = () => {
     const handleSubs=()=>{
         toast.success("Thank You")
@@ -29,7 +30,7 @@ const Footer = () => {
                 <div className="w-full h-3 -mt-3 bg-deep-purple-accent-400" />
               </span>
             </h2>
-            <div className="flex flex-wrap justify-around my-10">
+            <div className="flex flex-wrap justify-around my-10 "  data-aos="flip-left">
               <Link to={"/"}>
                 <button className="hover:text-neutral text-white link link-neutral">
                   Home

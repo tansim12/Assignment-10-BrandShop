@@ -3,6 +3,7 @@ import LoginWith from "../Components/LoginWith/LoginWith";
 import toast, { Toaster } from "react-hot-toast";
 import useAuthContext from "../useAuthContext";
 
+
 const Login = () => {
   const { login } = useAuthContext();
   const patten = /^(?=.*[A-Z])(?=.*[@#$%^&+=!]).{6,}$/;
@@ -32,7 +33,7 @@ const Login = () => {
   };
 
   return (
-    <section className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 py-5">
+    <section className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 pb-5 pt-24">
       <div className="flex justify-center ">
         <div className="flex flex-col   max-w-md p-6 rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
           <div className="mb-8 text-center">
@@ -78,7 +79,7 @@ const Login = () => {
               <div>
                 <button
                   type="submit"
-                  className="w-full btn  px-8 py-3 font-semibold rounded-md dark:text-gray-900"
+                  className="w-full btn  px-8 py-3 font-semibold rounded-md dark:text-gray-900 "
                 >
                   Login
                 </button>
@@ -92,7 +93,7 @@ const Login = () => {
               <Link
                 rel="noopener noreferrer"
                 to={"/register"}
-                className="hover:underline dark:text-violet-400"
+                className="hover:underline dark:text-violet-400 "
               >
                 Register
               </Link>

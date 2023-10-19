@@ -1,8 +1,10 @@
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
+import "animate.css"
 
 const BrandProducts = ({ item }) => {
   const { productName, img, price, brandName, rating, type, _id } = item;
+  
 
   return (
     <div className="shadow-2xl p-5">
@@ -59,7 +61,7 @@ const BrandProducts = ({ item }) => {
 
         <div className="flex justify-between my-5">
           <Link to={`/details/${brandName}/${_id}`}>
-            <button className="btn bg-gradient-to-r from-violet-300 to-pink-500 font-semibold text-black">
+            <button className="btn bg-gradient-to-r from-violet-300 to-pink-500 font-semibold text-black animate__swing">
               Details
             </button>
           </Link>

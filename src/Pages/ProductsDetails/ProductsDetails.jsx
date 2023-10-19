@@ -2,6 +2,7 @@ import Rating from "react-rating";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
+
 const ProductsDetails = () => {
   const data = useLoaderData();
   const { productName, img, price, brandName, rating, type, description } =
@@ -51,7 +52,7 @@ const ProductsDetails = () => {
                   <Link>
                     <button
                       onClick={handleAddToCart}
-                      className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
+                      className=" w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700 "
                     >
                       Add to Cart
                     </button>

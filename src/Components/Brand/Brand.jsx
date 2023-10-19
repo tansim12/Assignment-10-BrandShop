@@ -46,7 +46,7 @@ const Brand = () => {
               style={{ backgroundColor: item?.category_color }}
               className={`mt-5 text-white font-semibold max-w-max px-2 py-1 rounded-md `}
             >
-              <p>{item?.name}</p>
+              <p data-aos="zoom-in">{item?.name}</p>
             </div>
           </div>
         ))}

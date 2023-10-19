@@ -183,7 +183,11 @@ const AddProducts = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-neutral w-full my-5">
+            <button
+              type="submit"
+              className="btn btn-neutral w-full my-5 "
+              data-aos="zoom-in-down"
+            >
               Add{" "}
             </button>
           </form>
