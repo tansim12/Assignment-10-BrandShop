@@ -19,9 +19,12 @@ const CartProducts = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await fetch(`http://localhost:5000/cartProducts/${_id}`, {
-            method: "DELETE",
-          });
+          const res = await fetch(
+            `https://assingment-10-server-murex.vercel.app/products/${_id}`,
+            {
+              method: "DELETE",
+            }
+          );
           const fetchData = await res.json();
           console.log(fetchData);
           if (fetchData.deletedCount > 0) {

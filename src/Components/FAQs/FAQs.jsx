@@ -30,7 +30,7 @@ const FAQs = () => {
             Answer: Virtual reality (VR) immerses users in a completely
             computer-generated environment, blocking out the real world.
             Augmented reality (AR), on the other hand, overlays digital
-            information and objects onto the real world, enhancing the user's
+            information and objects onto the real world, enhancing the 
             perception of reality.
           </p>
         </div>

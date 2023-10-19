@@ -2,6 +2,7 @@ import Marquee from "react-fast-marquee";
 import Brand from "../Components/Brand/Brand";
 import FAQs from "../Components/FAQs/FAQs";
 import NavAndBanner from "../Nav&banner/NavAndBanner";
+import Contact from "../Components/Contact/Contact";
 
 const Home = () => {
   return (
@@ -16,7 +17,14 @@ const Home = () => {
 
       {/* marquee  */}
       <div className="my-10 hover:cursor-pointer">
-        <Marquee className="shadow-2xl" pauseOnHover delay={2} direction="right" gradient gradientColor="#FF444A">
+        <Marquee
+          className="shadow-2xl"
+          pauseOnHover
+          delay={2}
+          direction="right"
+          gradient
+          gradientColor="#FF444A"
+        >
           <img
             className="w-28 mx-12"
             src="https://i.ibb.co/dDwWfDY/intel-i-letter-2006-20203034-logowik-com.webp"
@@ -52,6 +60,11 @@ const Home = () => {
       {/* faqs */}
       <div className="max-w-screen-xl mx-auto px-2 md:px-4 lg:px-8 mt-10">
         <FAQs></FAQs>
+      </div>
+
+      {/* contact section  */}
+      <div className="my-16">
+        <Contact></Contact>
       </div>
     </section>
   );

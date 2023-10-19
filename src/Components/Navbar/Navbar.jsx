@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { BsToggle2Off, BsToggle2On } from "react-icons/bs";
 import "./toggle.css";
+import "./nav.css";
 
 import Profile from "../Profile/Profile";
 import useAuthContext from "../../useAuthContext";
@@ -33,7 +34,7 @@ const Navbar = () => {
               ? "active my-2 lg:my-0 lg:mx-2 font-bold hover:text-white"
               : isPending
               ? "pending"
-              : "my-2 lg:my-0 lg:mx-2 hover:text-neutral font-semibold"
+              : "my-2 lg:my-0 lg:mx-2  text-yellow-300 hover:text-neutral font-semibold"
           }
         >
           Home
@@ -47,7 +48,7 @@ const Navbar = () => {
               ? "active my-2 lg:my-0 lg:mx-2 font-bold hover:text-white"
               : isPending
               ? "pending"
-              : " my-2 lg:my-0 lg:mx-2  hover:text-neutral font-semibold"
+              : " my-2 lg:my-0 lg:mx-2 text-yellow-300  hover:text-neutral font-semibold"
           }
         >
           Add Product
@@ -61,7 +62,7 @@ const Navbar = () => {
               ? "active my-2 lg:my-0 lg:mx-2 font-bold hover:text-white"
               : isPending
               ? "pending"
-              : "my-2 lg:my-0 lg:mx-2  hover:text-neutral font-semibold"
+              : "my-2 lg:my-0 lg:mx-2 text-yellow-300 hover:text-neutral font-semibold"
           }
         >
           My Cart
@@ -73,7 +74,7 @@ const Navbar = () => {
   // toggle
 
   return (
-    <div>
+    <div className="navbar bg-opacity-10  z-50">
       <div className="navbar shadow-2xl">
         <div className="navbar-start">
           <div className="dropdown">
@@ -100,11 +101,10 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
           <div>
             <img
-              className="  h-10"
-              src="https://klbtheme.com/machic/intro/assets/img/logo-dark.png"
+              className=" h-8 sm:h-10"
+              src="	https://demo.rstheme.com/wordpress/tekone/wp-content/uploads/2023/04/Logo_2.png"
               alt="Author"
             />
           </div>
@@ -115,7 +115,10 @@ const Navbar = () => {
         <div className="navbar-end ">
           {/* toggle dark theme  */}
           <div>
-            <p onClick={() => setTheme(!theme)} className="text-2xl sm:text-4xl mr-2 p-1 sm:mr-4 sm:p-2">
+            <p
+              onClick={() => setTheme(!theme)}
+              className="text-2xl sm:text-4xl mr-2 p-1 sm:mr-4 sm:p-2"
+            >
               {!theme ? (
                 <BsToggle2Off></BsToggle2Off>
               ) : (

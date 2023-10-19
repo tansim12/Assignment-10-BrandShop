@@ -10,7 +10,7 @@ const AddProducts = () => {
   };
 
   //   handleAddProducts
-  const handleAddProducts =async (e) => {
+  const handleAddProducts = async (e) => {
     e.preventDefault();
     const form = e.target;
     const productName = e.target.productName.value;
@@ -30,25 +30,35 @@ const AddProducts = () => {
       return toast.error("Please select your Brand name.");
     }
     // console.log(productName, price, description, img, type, rating, brandName);
-    const products  = {productName, price, description, img, type, rating, brandName}
+    const products = {
+      productName,
+      price,
+      description,
+      img,
+      type,
+      rating,
+      brandName,
+    };
 
     try {
-        const res = await fetch("http://localhost:5000/products" , {
-            method:"POST", 
-            headers:{
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(products)
-        })
-        const data= await res.json();
-        if (data.insertedId) {
-            toast.success("Products added successfully done. ")
-            form.reset()
+      const res = await fetch(
+        "https://assingment-10-server-murex.vercel.app/products",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(products),
         }
+      );
+      const data = await res.json();
+      if (data.insertedId) {
+        toast.success("Products added successfully done. ");
+        form.reset();
+      }
     } catch (error) {
-        console.error(error);
+      console.error(error);
     }
-
   };
   return (
     <section
