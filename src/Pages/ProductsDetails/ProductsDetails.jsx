@@ -11,7 +11,7 @@ const ProductsDetails = () => {
   const handleAddToCart = async () => {
     try {
       const res = await fetch(
-        "https://assingment-10-server-murex.vercel.app/products",
+        "https://assingment-10-server-murex.vercel.app/cartProducts",
         {
           method: "POST",
           headers: {

@@ -20,7 +20,7 @@ const CartProducts = () => {
       if (result.isConfirmed) {
         try {
           const res = await fetch(
-            `https://assingment-10-server-murex.vercel.app/products/${_id}`,
+            `https://assingment-10-server-murex.vercel.app/cartProducts/${_id}`,
             {
               method: "DELETE",
             }
@@ -43,7 +43,10 @@ const CartProducts = () => {
       {remainingData.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {remainingData?.map((item) => (
-            <div key={item?._id}>
+            <div
+              key={item?._id}
+              className="border p-3 border-neutral rounded-lg"
+            >
               <div>
                 <img src={item?.img} alt="" />
               </div>

@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         loader: async () => {
           // const res = await fetch("https://assingment-10-server-murex.vercel.app/products");
           const res = await fetch(
-            "https://assingment-10-server-murex.vercel.app/products"
+            "https://assingment-10-server-murex.vercel.app/cartProducts"
           );
           const data = await res.json();
           return data;
