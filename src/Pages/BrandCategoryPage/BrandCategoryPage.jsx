@@ -7,7 +7,7 @@ const BrandCategoryPage = () => {
   const data = useLoaderData();
 
   return (
-    <div className="max-w-screen-xl mx-auto px-2 md:px-4 lg:px-8 py-5 gap-4">
+    <div className="max-w-screen-xl mx-auto px-2 md:px-4 lg:px-8 pb-5 gap-4 pt-28">
       {/* some detail section and  advertisement  */}
       <div className="grid  grid-cols-1 md:grid-cols-3 mb-16">
         {/* text  */}

@@ -34,7 +34,7 @@ const Navbar = () => {
               ? "active my-2 lg:my-0 lg:mx-2 font-bold hover:text-white"
               : isPending
               ? "pending"
-              : "my-2 lg:my-0 lg:mx-2  text-yellow-300 hover:text-neutral font-semibold"
+              : "my-2 lg:my-0 lg:mx-2  text-yellow-400 hover:text-neutral font-semibold"
           }
         >
           Home
@@ -48,7 +48,7 @@ const Navbar = () => {
               ? "active my-2 lg:my-0 lg:mx-2 font-bold hover:text-white"
               : isPending
               ? "pending"
-              : " my-2 lg:my-0 lg:mx-2 text-yellow-300  hover:text-neutral font-semibold"
+              : " my-2 lg:my-0 lg:mx-2 text-yellow-400  hover:text-neutral font-semibold"
           }
         >
           Add Product
@@ -62,7 +62,7 @@ const Navbar = () => {
               ? "active my-2 lg:my-0 lg:mx-2 font-bold hover:text-white"
               : isPending
               ? "pending"
-              : "my-2 lg:my-0 lg:mx-2 text-yellow-300 hover:text-neutral font-semibold"
+              : "my-2 lg:my-0 lg:mx-2 text-yellow-400 hover:text-neutral font-semibold"
           }
         >
           My Cart
@@ -81,7 +81,7 @@ const Navbar = () => {
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-6 w-6 text-neutral"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

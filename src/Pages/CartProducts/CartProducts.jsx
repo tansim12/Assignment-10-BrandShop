@@ -26,7 +26,6 @@ const CartProducts = () => {
             }
           );
           const fetchData = await res.json();
-          console.log(fetchData);
           if (fetchData.deletedCount > 0) {
             Swal.fire("Deleted!", "Your file has been deleted.", "success");
             const remain = data.filter((item) => item._id !== _id);
@@ -39,7 +38,7 @@ const CartProducts = () => {
     });
   };
   return (
-    <section className="max-w-screen-xl mx-auto px-2 md:px-4 lg:px-8 py-5">
+    <section className="max-w-screen-xl mx-auto px-2 md:px-4 lg:px-8 pt-28 min-h-[90vh]">
       {remainingData.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {remainingData?.map((item) => (

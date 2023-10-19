@@ -66,7 +66,7 @@ const ProductUpdateForm = () => {
             }
           );
           const fetchData = await res.json();
-          console.log(fetchData);
+          
           if (fetchData.modifiedCount > 0) {
             Swal.fire("Update", "Your product update successfully", "success");
           }
@@ -81,7 +81,7 @@ const ProductUpdateForm = () => {
       style={{
         backgroundImage: "url(https://i.ibb.co/8BJBcfX/cool-background-2.png)",
       }}
-      className="min-h-[90vh]"
+      className="min-h-[90vh] pt-20"
     >
       <div className="flex justify-center items-center min-h-[100vh] sm:p-0 p-3 py-4">
         <div>
