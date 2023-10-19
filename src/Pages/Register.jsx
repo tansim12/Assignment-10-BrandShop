@@ -12,6 +12,7 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     // const name = e.target.name.value;
+    const form = e.target
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.confirmPassword.value;
@@ -30,6 +31,7 @@ const Register = () => {
     register(email, password)
       .then(() => {
         toast.success("Register successfully");
+        form.reset()
       })
 
       .catch((err) => toast.error(err.message));
