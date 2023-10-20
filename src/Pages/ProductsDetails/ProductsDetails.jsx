@@ -1,12 +1,24 @@
 import Rating from "react-rating";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import useAuthContext from "../../useAuthContext";
 
 const ProductsDetails = () => {
+  const { user } = useAuthContext();
+  const email = user?.email;
   const data = useLoaderData();
   const { productName, img, price, brandName, rating, type, description } =
     data;
+  const addedEmailData = {
+    productName,
+    img,
+    price,
+    brandName,
+    rating,
+    type,
+    description,
+    email,
+  };
 
   // handleAddToCart
   const handleAddToCart = async () => {
@@ -18,7 +30,7 @@ const ProductsDetails = () => {
           headers: {
             "content-type": "application/json",
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify(addedEmailData),
         }
       );
       const fetchData = await res.json();
