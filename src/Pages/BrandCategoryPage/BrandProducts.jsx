@@ -1,10 +1,9 @@
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
-import "animate.css"
+import "animate.css";
 
 const BrandProducts = ({ item }) => {
   const { productName, img, price, brandName, rating, type, _id } = item;
-  
 
   return (
     <div className="shadow-2xl p-5">

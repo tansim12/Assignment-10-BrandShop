@@ -38,20 +38,13 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/cartProducts/:email",
+        path: "/cartProducts",
         element: (
           <PrivateRoute>
             <CartProducts></CartProducts>
           </PrivateRoute>
         ),
-        loader: async ({ params }) => {
-          // const res = await fetch("https://assingment-10-server-murex.vercel.app/products");
-          const res = await fetch(
-            `https://assingment-10-server-murex.vercel.app/cartProducts/${params.email}`
-          );
-          const data = await res.json();
-          return data;
-        },
+        
       },
       {
         path: "/products/:brandName",

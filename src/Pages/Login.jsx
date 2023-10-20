@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoginWith from "../Components/LoginWith/LoginWith";
 import toast, { Toaster } from "react-hot-toast";
 import useAuthContext from "../useAuthContext";
@@ -9,7 +9,8 @@ const Login = () => {
   const patten = /^(?=.*[A-Z])(?=.*[@#$%^&+=!]).{6,}$/;
   const capital = /[A-Z]/;
   const navigate = useNavigate();
-
+  const loc = useLocation()
+  
   // handleLogin
   const handleLogin = (e) => {
     e.preventDefault();
@@ -27,7 +28,7 @@ const Login = () => {
     login(email, password)
       .then(() => {
         toast.success("Login successfully");
-        navigate("/");
+        navigate(loc?.state ? loc?.state : "/");
       })
       .catch(() => toast.error("Invalid user ."));
   };

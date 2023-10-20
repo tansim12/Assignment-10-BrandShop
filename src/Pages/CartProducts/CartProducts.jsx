@@ -1,11 +1,23 @@
-import { useLoaderData } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useAuthContext from "../../useAuthContext";
 
 const CartProducts = () => {
-  const data = useLoaderData();
-  const [remainingData, setRemainingData] = useState(data);
+  const { user } = useAuthContext();
+  const [remainingData, setRemainingData] = useState([]);
+  useEffect(() => {
+    if (user) {
+      fetch(
+        `https://assingment-10-server-murex.vercel.app/cartProducts/${user.email}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setRemainingData(data);
+        });
+    }
+  }, [user]);
+
   //   handleCartDelete
   const handleCartDelete = (_id) => {
     Swal.fire({
