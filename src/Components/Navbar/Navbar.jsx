@@ -2,13 +2,15 @@ import { Link, NavLink } from "react-router-dom";
 import { BsToggle2Off, BsToggle2On } from "react-icons/bs";
 import "./toggle.css";
 import "./nav.css";
-
 import Profile from "../Profile/Profile";
 import useAuthContext from "../../useAuthContext";
 import toast, { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
+
+
 const Navbar = () => {
   const { user, logOut } = useAuthContext();
+  const email = user?.email
   const [theme, setTheme] = useState(false);
   useEffect(() => {
     if (!theme) {
@@ -34,7 +36,7 @@ const Navbar = () => {
               ? "active my-2 lg:my-0 lg:mx-2 font-bold hover:text-white"
               : isPending
               ? "pending"
-              : "my-2 lg:my-0 lg:mx-2  text-yellow-400 hover:text-neutral font-semibold"
+              : "my-2 lg:my-0 lg:mx-2  text-yellow-600 hover:text-neutral font-semibold"
           }
         >
           Home
@@ -48,7 +50,7 @@ const Navbar = () => {
               ? "active my-2 lg:my-0 lg:mx-2 font-bold hover:text-white"
               : isPending
               ? "pending"
-              : " my-2 lg:my-0 lg:mx-2 text-yellow-400  hover:text-neutral font-semibold"
+              : " my-2 lg:my-0 lg:mx-2 text-yellow-600  hover:text-neutral font-semibold"
           }
         >
           Add Product
@@ -56,13 +58,13 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to={"/cartProducts"}
+          to={`/cartProducts/${email}`}
           className={({ isActive, isPending }) =>
             isActive
               ? "active my-2 lg:my-0 lg:mx-2 font-bold hover:text-white"
               : isPending
               ? "pending"
-              : "my-2 lg:my-0 lg:mx-2 text-yellow-400 hover:text-neutral font-semibold"
+              : "my-2 lg:my-0 lg:mx-2 text-yellow-600 hover:text-neutral font-semibold"
           }
         >
           My Cart
@@ -96,7 +98,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-400 rounded-box w-52 "
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-200 rounded-box w-52 "
             >
               {links}
             </ul>

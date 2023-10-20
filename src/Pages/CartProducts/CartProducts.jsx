@@ -28,7 +28,7 @@ const CartProducts = () => {
           const fetchData = await res.json();
           if (fetchData.deletedCount > 0) {
             Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            const remain = data.filter((item) => item._id !== _id);
+            const remain = remainingData.filter((item) => item._id !== _id);
             setRemainingData(remain);
           }
         } catch (error) {
