@@ -56,7 +56,7 @@ const ProductUpdateForm = () => {
       if (result.isConfirmed) {
         try {
           const res = await fetch(
-            `https://assingment-10-server-murex.vercel.app/products/${brandName}/${_id}`,
+            `http://localhost:5000/products/${brandName}/${_id}`,
             {
               method: "PUT",
               headers: {

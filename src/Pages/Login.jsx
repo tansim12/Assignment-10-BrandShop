@@ -2,15 +2,17 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoginWith from "../Components/LoginWith/LoginWith";
 import toast, { Toaster } from "react-hot-toast";
 import useAuthContext from "../useAuthContext";
-
+import loginAnimation from "../assets/Animation - 1698515549249.json";
+import Lottie from "lottie-react";
+import axios from "axios";
 
 const Login = () => {
   const { login } = useAuthContext();
   const patten = /^(?=.*[A-Z])(?=.*[@#$%^&+=!]).{6,}$/;
   const capital = /[A-Z]/;
   const navigate = useNavigate();
-  const loc = useLocation()
-  
+  const loc = useLocation();
+
   // handleLogin
   const handleLogin = (e) => {
     e.preventDefault();
@@ -27,16 +29,35 @@ const Login = () => {
     }
     login(email, password)
       .then(() => {
-        toast.success("Login successfully");
-        navigate(loc?.state ? loc?.state : "/");
+        // using jwt post method by protect API
+        axios
+          .post(
+            "http://localhost:5000/jwt",
+            { email: email },
+            { withCredentials: true }
+          )
+          .then((result) => {
+            if (result.data.success) {
+              toast.success("Login successfully");
+              navigate(loc?.state ? loc?.state : "/");
+            }
+          })
+          .catch((err) => toast.error(err.message));
       })
       .catch(() => toast.error("Invalid user ."));
   };
 
   return (
     <section className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 pb-5 pt-24">
-      <div className="flex justify-center ">
-        <div className="flex flex-col   max-w-md p-6 rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
+      <div className=" md:flex justify-around gap-5 items-center  ">
+        <div>
+          <Lottie
+            animationData={loginAnimation}
+            loop={true}
+            autoPlay={true}
+          ></Lottie>
+        </div>
+        <div className="flex flex-col mt-10 md:mt-0 max-w-full p-6 rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
           <div className="mb-8 text-center">
             <h1 className="my-3 text-4xl font-bold">Login</h1>
             <p className="text-sm dark:text-gray-400">

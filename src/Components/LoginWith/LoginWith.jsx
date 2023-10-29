@@ -3,6 +3,7 @@ import { BsGithub } from "react-icons/bs";
 import useAuthContext from "../../useAuthContext";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const LoginWith = () => {
   const { githubLogin, googleLogin } = useAuthContext();
@@ -10,9 +11,21 @@ const LoginWith = () => {
   const navigate = useNavigate();
   const handleLogin = (media) => {
     media()
-      .then(() => {
-        toast.success("Login Successfully");
-        navigate(loc?.state ? loc?.state : "/");
+      .then((res) => {
+       // using jwt post method by protect API
+       axios
+       .post(
+         "http://localhost:5000/jwt",
+         { email: res?.user?.email },
+         { withCredentials: true }
+       )
+       .then((result) => {
+         if (result.data.success) {
+           toast.success("Login successfully");
+           navigate(loc?.state ? loc?.state : "/");
+         }
+       })
+       .catch((err) => toast.error(err.message));
       })
       .catch((err) => toast.error(err.message));
   };

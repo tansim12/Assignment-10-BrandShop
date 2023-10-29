@@ -10,6 +10,7 @@ import BrandCategoryPage from "../Pages/BrandCategoryPage/BrandCategoryPage";
 import ProductUpdateForm from "../ProductUpdateForm/ProductUpdateForm";
 import ProductsDetails from "../Pages/ProductsDetails/ProductsDetails";
 import PrivateRoute from "./PrivateRoute";
+import axios from "axios";
 
 const router = createBrowserRouter([
   {
@@ -44,16 +45,15 @@ const router = createBrowserRouter([
             <CartProducts></CartProducts>
           </PrivateRoute>
         ),
-        
       },
       {
         path: "/products/:brandName",
         element: <BrandCategoryPage></BrandCategoryPage>,
         loader: async ({ params }) => {
-          const res = await fetch(
-            `https://assingment-10-server-murex.vercel.app/products/${params.brandName}`
+          const res = await axios.get(
+            `http://localhost:5000/products/${params.brandName}` , {withCredentials:true}
           );
-          const data = await res.json();
+          const data = await res.data;
           return data;
         },
       },
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
         ),
         loader: async ({ params }) => {
           const res = await fetch(
-            `https://assingment-10-server-murex.vercel.app/products/${params.brandName}/${params._id}`
+            `http://localhost:5000/products/${params.brandName}/${params._id}`
           );
           const data = await res.json();
           return data;
@@ -81,7 +81,7 @@ const router = createBrowserRouter([
         ),
         loader: async ({ params }) => {
           const res = await fetch(
-            `https://assingment-10-server-murex.vercel.app/products/${params.brandName}/${params._id}`
+            `http://localhost:5000/products/${params.brandName}/${params._id}`
           );
           const data = await res.json();
           return data;

@@ -23,16 +23,13 @@ const ProductsDetails = () => {
   // handleAddToCart
   const handleAddToCart = async () => {
     try {
-      const res = await fetch(
-        "https://assingment-10-server-murex.vercel.app/cartProducts",
-        {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(addedEmailData),
-        }
-      );
+      const res = await fetch("http://localhost:5000/cartProducts", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(addedEmailData),
+      });
       const fetchData = await res.json();
       if (fetchData.insertedId) {
         Swal.fire(

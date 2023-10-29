@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import LoginWith from "../Components/LoginWith/LoginWith";
 import useAuthContext from "../useAuthContext";
 import toast, { Toaster } from "react-hot-toast";
+import registerAnimation from '../assets/register.json';
+import Lottie from "lottie-react";
 
 const Register = () => {
   const { register } = useAuthContext();
@@ -38,8 +40,11 @@ const Register = () => {
   };
   return (
     <div className="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12 py-5">
-      <section className=" my-10 ">
-        <div className="flex flex-col items-center justify-center px-2 py-4 mx-auto  ">
+      <section className=" my-10 grid md:grid-cols-2 grid-cols-1 justify-between gap-5 items-center ">
+        <div className="col-span-1">
+          <Lottie animationData={registerAnimation} ></Lottie>
+        </div>
+        <div className="flex flex-col items-center justify-center px-2 py-4 mx-auto w-full col-span-1 ">
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">

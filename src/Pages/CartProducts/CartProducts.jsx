@@ -2,19 +2,18 @@ import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 import useAuthContext from "../../useAuthContext";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 const CartProducts = () => {
   const { user } = useAuthContext();
   const [remainingData, setRemainingData] = useState([]);
   useEffect(() => {
     if (user) {
-      fetch(
-        `https://assingment-10-server-murex.vercel.app/cartProducts/${user.email}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          setRemainingData(data);
-        });
+      axios
+        .get(`http://localhost:5000/cartProducts?email=${user?.email}` , {withCredentials:true})
+        .then((result) => setRemainingData(result.data))
+        .catch((err) => toast.error(err.message));
     }
   }, [user]);
 
@@ -31,12 +30,9 @@ const CartProducts = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await fetch(
-            `https://assingment-10-server-murex.vercel.app/cartProducts/${_id}`,
-            {
-              method: "DELETE",
-            }
-          );
+          const res = await fetch(`http://localhost:5000/cartProducts/${_id}`, {
+            method: "DELETE",
+          });
           const fetchData = await res.json();
           if (fetchData.deletedCount > 0) {
             Swal.fire("Deleted!", "Your file has been deleted.", "success");
@@ -56,20 +52,22 @@ const CartProducts = () => {
           {remainingData?.map((item) => (
             <div
               key={item?._id}
-              className="border p-3 border-neutral rounded-lg"
+              className="border p-3 border-neutral rounded-lg flex flex-col"
             >
-              <div>
+              <div className="flex-grow">
                 <img src={item?.img} alt="" />
               </div>
-              <div>
+
+              <div className="flex-grow">
                 <p className="my-3">
                   <span className="font-bold">Product Name</span> :{" "}
-                  {item?.productName}
+                  <span className="text-sm">{item?.productName}</span>
                 </p>
                 <p className="my-3">
                   <span className="font-bold">Price :</span> $ {item?.price}
                 </p>
               </div>
+
               <button
                 onClick={() => handleCartDelete(item?._id)}
                 className="btn w-full text-3xl btn-error"
@@ -85,6 +83,7 @@ const CartProducts = () => {
           <span className="text-neutral">please retry</span>
         </span>
       )}
+      <Toaster></Toaster>
     </section>
   );
 };
