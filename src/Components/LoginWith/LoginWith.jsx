@@ -12,20 +12,20 @@ const LoginWith = () => {
   const handleLogin = (media) => {
     media()
       .then((res) => {
-       // using jwt post method by protect API
-       axios
-       .post(
-         "http://localhost:5000/jwt",
-         { email: res?.user?.email },
-         { withCredentials: true }
-       )
-       .then((result) => {
-         if (result.data.success) {
-           toast.success("Login successfully");
-           navigate(loc?.state ? loc?.state : "/");
-         }
-       })
-       .catch((err) => toast.error(err.message));
+        // using jwt post method by protect API
+        axios
+          .post(
+            "https://assingment-10-server-murex.vercel.app/jwt",
+            { email: res?.user?.email },
+            { withCredentials: true }
+          )
+          .then((result) => {
+            if (result.data.success) {
+              toast.success("Login successfully");
+              navigate(loc?.state ? loc?.state : "/");
+            }
+          })
+          .catch((err) => toast.error(err.message));
       })
       .catch((err) => toast.error(err.message));
   };

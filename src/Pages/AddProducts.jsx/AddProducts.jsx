@@ -41,13 +41,16 @@ const AddProducts = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/products", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(products),
-      });
+      const res = await fetch(
+        "https://assingment-10-server-murex.vercel.app/products",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(products),
+        }
+      );
       const data = await res.json();
       if (data.insertedId) {
         toast.success("Products added successfully done. ");

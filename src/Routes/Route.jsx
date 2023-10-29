@@ -51,7 +51,8 @@ const router = createBrowserRouter([
         element: <BrandCategoryPage></BrandCategoryPage>,
         loader: async ({ params }) => {
           const res = await axios.get(
-            `http://localhost:5000/products/${params.brandName}` , {withCredentials:true}
+            `https://assingment-10-server-murex.vercel.app/products/${params.brandName}`,
+            { withCredentials: true }
           );
           const data = await res.data;
           return data;
@@ -65,10 +66,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: async ({ params }) => {
-          const res = await fetch(
-            `http://localhost:5000/products/${params.brandName}/${params._id}`
+          const res = await axios.get(
+            `https://assingment-10-server-murex.vercel.app/products/${params.brandName}/${params._id}`
           );
-          const data = await res.json();
+          const data = await res.data
           return data;
         },
       },
@@ -80,10 +81,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: async ({ params }) => {
-          const res = await fetch(
-            `http://localhost:5000/products/${params.brandName}/${params._id}`
+          const res = await axios.get(
+            `https://assingment-10-server-murex.vercel.app/products/${params.brandName}/${params._id}`
           );
-          const data = await res.json();
+          const data = await res.data;
           return data;
         },
       },

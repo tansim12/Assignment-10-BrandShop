@@ -11,7 +11,10 @@ const CartProducts = () => {
   useEffect(() => {
     if (user) {
       axios
-        .get(`http://localhost:5000/cartProducts?email=${user?.email}` , {withCredentials:true})
+        .get(
+          `https://assingment-10-server-murex.vercel.app/cartProducts?email=${user?.email}`,
+          { withCredentials: true }
+        )
         .then((result) => setRemainingData(result.data))
         .catch((err) => toast.error(err.message));
     }
@@ -30,9 +33,12 @@ const CartProducts = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await fetch(`http://localhost:5000/cartProducts/${_id}`, {
-            method: "DELETE",
-          });
+          const res = await fetch(
+            `https://assingment-10-server-murex.vercel.app/cartProducts/${_id}`,
+            {
+              method: "DELETE",
+            }
+          );
           const fetchData = await res.json();
           if (fetchData.deletedCount > 0) {
             Swal.fire("Deleted!", "Your file has been deleted.", "success");

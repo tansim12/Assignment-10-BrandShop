@@ -32,7 +32,7 @@ const Login = () => {
         // using jwt post method by protect API
         axios
           .post(
-            "http://localhost:5000/jwt",
+            "https://assingment-10-server-murex.vercel.app/jwt",
             { email: email },
             { withCredentials: true }
           )
