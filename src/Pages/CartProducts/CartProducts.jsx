@@ -13,7 +13,9 @@ const CartProducts = () => {
       axios
         .get(
           `https://assingment-10-server-murex.vercel.app/cartProducts?email=${user?.email}`,
-          { withCredentials: true }
+          {
+            withCredentials: true,
+          }
         )
         .then((result) => setRemainingData(result.data))
         .catch((err) => toast.error(err.message));

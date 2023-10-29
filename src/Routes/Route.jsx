@@ -67,9 +67,10 @@ const router = createBrowserRouter([
         ),
         loader: async ({ params }) => {
           const res = await axios.get(
-            `https://assingment-10-server-murex.vercel.app/products/${params.brandName}/${params._id}`
+            `https://assingment-10-server-murex.vercel.app/products/${params.brandName}/${params._id}`,
+            { withCredentials: true }
           );
-          const data = await res.data
+          const data = await res.data;
           return data;
         },
       },
@@ -82,7 +83,8 @@ const router = createBrowserRouter([
         ),
         loader: async ({ params }) => {
           const res = await axios.get(
-            `https://assingment-10-server-murex.vercel.app/products/${params.brandName}/${params._id}`
+            `https://assingment-10-server-murex.vercel.app/products/${params.brandName}/${params._id}`,
+            { withCredentials: true }
           );
           const data = await res.data;
           return data;

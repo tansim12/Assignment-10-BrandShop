@@ -1,11 +1,15 @@
+import axios from "axios";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ProductUpdateForm = () => {
   const data = useLoaderData();
+  const navigate = useNavigate();
+
   const { productName, price, description, img, type, rating, _id } = data;
+
   const [brandName, setBrandName] = useState("");
   // handleBrandValue
   const handleBrandValue = (e) => {
@@ -55,20 +59,14 @@ const ProductUpdateForm = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await fetch(
+          const res = await axios.put(
             `https://assingment-10-server-murex.vercel.app/products/${brandName}/${_id}`,
-            {
-              method: "PUT",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(products),
-            }
+            products
           );
-          const fetchData = await res.json();
-
+          const fetchData = await res.data;
           if (fetchData.modifiedCount > 0) {
             Swal.fire("Update", "Your product update successfully", "success");
+            navigate(-1);
           }
         } catch (error) {
           console.error(error);
