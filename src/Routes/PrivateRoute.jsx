@@ -1,6 +1,9 @@
-import { Vortex } from "react-loader-spinner";
+
 import { Navigate, useLocation } from "react-router-dom";
 import useAuthContext from "../useAuthContext";
+import LoadingSpinar from "../Components/LoadingSpinar/LoadingSpinar";
+
+
 
 const PrivateRoute = ({ children }) => {
   const { loading, user } = useAuthContext();
@@ -8,16 +11,9 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="min-h-[70vh] flex justify-center items-center">
-        <Vortex
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="vortex-loading"
-          wrapperStyle={{}}
-          wrapperClass="vortex-wrapper"
-          colors={["red", "green", "blue", "yellow", "orange", "purple"]}
-        />
+      <div >
+        <LoadingSpinar></LoadingSpinar>
+        
       </div>
     );
   }

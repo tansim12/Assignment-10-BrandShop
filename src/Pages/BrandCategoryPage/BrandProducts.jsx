@@ -60,7 +60,7 @@ const BrandProducts = ({ item }) => {
 
         <div className="flex justify-between my-5">
           <Link to={`/details/${brandName}/${_id}`}>
-            <button className="btn bg-gradient-to-r from-violet-300 to-pink-500 font-semibold text-black animate__swing">
+            <button className="btn bg-gradient-to-r from-violet-300 to-pink-500 font-semibold text-black ">
               Details
             </button>
           </Link>

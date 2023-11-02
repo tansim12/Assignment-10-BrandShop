@@ -1,26 +1,33 @@
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
-import { useEffect, useState } from "react";
+
 import useAuthContext from "../../useAuthContext";
 import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
+import { useQuery } from "@tanstack/react-query";
+import LoadingSpinar from "../../Components/LoadingSpinar/LoadingSpinar";
 
 const CartProducts = () => {
   const { user } = useAuthContext();
-  const [remainingData, setRemainingData] = useState([]);
-  useEffect(() => {
-    if (user) {
-      axios
-        .get(
-          `https://assingment-10-server-murex.vercel.app/cartProducts?email=${user?.email}`,
-          {
-            withCredentials: true,
-          }
-        )
-        .then((result) => setRemainingData(result.data))
-        .catch((err) => toast.error(err.message));
-    }
-  }, [user]);
+
+  // update tanStack query
+  const { data, refetch, isLoading } = useQuery({
+    queryKey: ["cartProducts"],
+    queryFn: async () => {
+      const res = await axios.get(
+        `https://assingment-10-server-murex.vercel.app/cartProducts?email=${user?.email}`,
+        {
+          withCredentials: true,
+        }
+      );
+      const fetchData = await res.data;
+      return fetchData;
+    },
+  });
+
+  if (isLoading) {
+    <LoadingSpinar></LoadingSpinar>;
+  }
 
   //   handleCartDelete
   const handleCartDelete = (_id) => {
@@ -44,8 +51,7 @@ const CartProducts = () => {
           const fetchData = await res.json();
           if (fetchData.deletedCount > 0) {
             Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            const remain = remainingData.filter((item) => item._id !== _id);
-            setRemainingData(remain);
+            refetch();
           }
         } catch (error) {
           console.error(error);
@@ -55,9 +61,9 @@ const CartProducts = () => {
   };
   return (
     <section className="max-w-screen-xl mx-auto px-2 md:px-4 lg:px-8 pt-28 min-h-[90vh]">
-      {remainingData.length > 0 ? (
+      {data?.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {remainingData?.map((item) => (
+          {data?.map((item) => (
             <div
               key={item?._id}
               className="border p-3 border-neutral rounded-lg flex flex-col"

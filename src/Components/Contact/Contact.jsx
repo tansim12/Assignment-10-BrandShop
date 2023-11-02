@@ -1,4 +1,7 @@
+import Lottie from "lottie-react";
 import toast from "react-hot-toast";
+import contactAnimation from '../../assets/contactus lottie.json'
+
 
 const Contact = () => {
     // handleContact
@@ -18,11 +21,9 @@ const Contact = () => {
               Vivamus in nisl metus? Phasellus.
             </div>
           </div>
-          <img
-            src="https://i.ibb.co/HxPXYVn/flat-design-illustration-customer-support-23-2148887720.jpg"
-            alt=""
-            className="p-6"
-          />
+          <div>
+            <Lottie animationData={contactAnimation}></Lottie>
+          </div>
         </div>
         <form className="space-y-6" onSubmit={handleContact}>
           <div>
